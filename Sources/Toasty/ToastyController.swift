@@ -1,15 +1,10 @@
 import UIKit
 
-// MARK: - functions
-/// 1. 컨트롤러를 사용하여 toast를 관리(?)할 수 있어야 함
-/// 2. 컨트롤러를 통해 toast의 present여부 설정
-/// 3. Toast의 지속시간 관리
-
-public protocol ToastControllerType {
-   func present(with toast: ToastViewType)
+public protocol ToastyControllerType {
+   func present(with toast: ToastyViewType)
 }
 
-open class ToastController: UIViewController, ToastControllerType {
+open class ToastyController: UIViewController, ToastyControllerType {
 
     public init (target: UIViewController) {
         super.init(nibName: nil, bundle: nil)
@@ -21,7 +16,7 @@ open class ToastController: UIViewController, ToastControllerType {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func present(with toast: ToastViewType) {
+    public func present(with toast: ToastyViewType) {
         guard let toastView = toast as? UIView else { return }
         view.addSubview(toastView)
 

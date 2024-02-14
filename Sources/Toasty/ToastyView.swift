@@ -1,12 +1,12 @@
 import UIKit
 import SnapKit
 
-public protocol ToastViewType {
+public protocol ToastyViewType {
     var iconImage: UIImage? { get set }
     var content: String? { get set }
 }
 
-open class ToastView: UIView, ToastViewType {
+open class ToastyView: UIView, ToastyViewType {
 
     public var iconImage: UIImage? {
         set { iconImageView.image = newValue }
@@ -18,11 +18,11 @@ open class ToastView: UIView, ToastViewType {
         get { contentLabel.text }
     }
 
-    private let contentLabel = UILabel()
+    public let contentLabel = UILabel()
     private let iconImageView = UIImageView()
 
     public init(
-        backgroundColor: UIColor? = nil,
+        backgroundColor: UIColor? = .gray,
         iconImage: UIImage? = nil,
         content: String? = nil
     ) {
